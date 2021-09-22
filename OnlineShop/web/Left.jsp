@@ -13,8 +13,8 @@
                 <li class="list-group-item text-white"><a href="#">Vivo</a></li>
                 <li class="list-group-item text-white"><a href="#">Xiaomi</a></li>
             </div>
-
         </ul>
+
     </div>
     <div class="card bg-light mb-3">
         <div class="card-header bg-success text-white text-uppercase">Last product</div>

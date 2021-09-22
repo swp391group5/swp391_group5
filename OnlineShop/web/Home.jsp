@@ -40,11 +40,10 @@
                                     <img class="card-img-top" src="https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-den-1-1-org.jpg" alt="Card image cap">
                                     <div class="card-body">
                                         <h4 class="card-title show_txt"><a href="#" title="View Product">iPhone 12</a></h4>
-                                        <p class="card-text show_txt">iPhone 12 64GB
-                                        </p>
+                                        <p class="card-text show_txt">iPhone 12 64GB</p>
                                         <div class="row">
                                             <div class="col">
-                                                <p class="btn btn-danger btn-block">20.490.000₫</p>
+                                                <p>20.490.000₫</p>
                                             </div>
                                             <div class="col">
                                                 <a href="#" class="btn btn-success btn-block">Add to cart</a>
@@ -59,11 +58,10 @@
                                     <img class="card-img-top" src="https://cdn.tgdd.vn/Products/Images/42/210648/iphone-11-trang-1-org.jpg" alt="Card image cap">
                                     <div class="card-body">
                                         <h4 class="card-title show_txt"><a href="#" title="View Product">iPhone 11</a></h4>
-                                        <p class="card-text show_txt">iPhone 11 256GB
-                                        </p>
+                                        <p class="card-text show_txt">iPhone 11 256GB</p>
                                         <div class="row">
                                             <div class="col">
-                                                <p class="btn btn-danger btn-block">19.490.000₫</p>
+                                                <p>19.490.000₫</p>
                                             </div>
                                             <div class="col">
                                                 <a href="#" class="btn btn-success btn-block">Add to cart</a>
@@ -78,11 +76,10 @@
                                     <img class="card-img-top" src="https://cdn.tgdd.vn/Products/Images/42/230630/vivo-y12s-4gb-128gb-den-1-org.jpg" alt="Card image cap">
                                     <div class="card-body">
                                         <h4 class="card-title show_txt"><a href="#" title="View Product">Vivo Y12s</a></h4>
-                                        <p class="card-text show_txt">Vivo Y12s 128GB
-                                        </p>
+                                        <p class="card-text show_txt">Vivo Y12s 128GB</p>
                                         <div class="row">
                                             <div class="col">
-                                                <p class="btn btn-danger btn-block">3.790.000₫</p>
+                                                <p>10.790.000₫</p>
                                             </div>
                                             <div class="col">
                                                 <a href="#" class="btn btn-success btn-block">Add to cart</a>
@@ -100,7 +97,7 @@
                                         <p class="card-text show_txt">Xiaomi Redmi 10 128GB</p>
                                         <div class="row">
                                             <div class="col">
-                                                <p class="btn btn-danger btn-block">4.690.000₫</p>
+                                                <p>10.690.000₫</p>
                                             </div>
                                             <div class="col">
                                                 <a href="#" class="btn btn-success btn-block">Add to cart</a>
@@ -118,7 +115,7 @@
                                         <p class="card-text show_txt">OPPO Reno6 Z 5G</p>
                                         <div class="row">
                                             <div class="col">
-                                                <p class="btn btn-danger btn-block">9.490.000₫</p>
+                                                <p>10.490.000₫</p>
                                             </div>
                                             <div class="col">
                                                 <a href="#" class="btn btn-success btn-block">Add to cart</a>
@@ -137,7 +134,7 @@
                                         <p class="card-text show_txt">Samsung Galaxy Z Fold2 5G</p>
                                         <div class="row">
                                             <div class="col">
-                                                <p class="btn btn-danger btn-block">50.000.000₫</p>
+                                                <p>50.000.000₫</p>
                                             </div>
                                             <div class="col">
                                                 <a href="#" class="btn btn-success btn-block">Add to cart</a>
@@ -146,10 +143,8 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
-
                 </div>
             </div>
 
