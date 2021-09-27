@@ -3,24 +3,29 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package entity;
 
 /**
  *
  * @author DucAnh
  */
 public class AccountDetail {
+
     private int id;
     private String name;
     private String phone;
-    private byte gender;
+    private int gender;
     private String address;
 
-    public AccountDetail() {
+    public AccountDetail(int id, String name, String phone, int gender, String address) {
+        this.id = id;
+        this.name = name;
+        this.phone = phone;
+        this.gender = gender;
+        this.address = address;
     }
 
-    public AccountDetail(int id, String name, String phone, byte gender, String address) {
-        this.id = id;
+    public AccountDetail(String name, String phone, int gender, String address) {
         this.name = name;
         this.phone = phone;
         this.gender = gender;
@@ -51,11 +56,11 @@ public class AccountDetail {
         this.phone = phone;
     }
 
-    public byte getGender() {
+    public int getGender() {
         return gender;
     }
 
-    public void setGender(byte gender) {
+    public void setGender(int gender) {
         this.gender = gender;
     }
 
@@ -66,6 +71,10 @@ public class AccountDetail {
     public void setAddress(String address) {
         this.address = address;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "AccountDetail{" + "id=" + id + ", name=" + name + ", phone=" + phone + ", gender=" + gender + ", address=" + address + '}';
+    }
+
 }

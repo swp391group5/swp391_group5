@@ -6,7 +6,7 @@
 package dao;
 
 import dao.DBContext;
-import model.Account;
+import entity.Account;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,6 +20,22 @@ public class AccountModel extends DBContext {
 
     ResultSet rs = null;
     PreparedStatement ps = null;
+
+    public boolean addAccount(Account account) {
+        int n = 0;
+        String sql = "INSERT INTO Account(Email, [Password], Account_Detail_Id, Role_ID, [Status]) VALUES(?, ?, ?, ?, ?)";
+        try {
+            PreparedStatement ps = getConnection().prepareStatement(sql);
+            ps.setString(1, account.getEmail());
+            ps.setString(2, account.getPassword());
+            ps.setInt(3, account.getAccountDetailId());
+            ps.setInt(4, account.getRoleId());
+            ps.setInt(5, account.getStatus());
+            n = ps.executeUpdate();
+        } catch (Exception e) {
+        }
+        return n > 0;
+    }
 
     public Account login(String email, String password) {
         String sql = "SELECT * FROM Account WHERE Email = ? and [Password] = ?";
@@ -43,6 +59,18 @@ public class AccountModel extends DBContext {
         } catch (Exception e) {
         }
         return null;
+    }
+
+    public boolean checkEmail(String email) {
+        String sql = "SELECT * FROM Account WHERE Email = ?";
+        try {
+            PreparedStatement ps = getConnection().prepareStatement(sql);
+            ps.setString(1, email);
+            rs = ps.executeQuery();
+            return rs.next();
+        } catch (Exception e) {
+        }
+        return false;
     }
 
     public ArrayList<Account> getAllAccount() {
@@ -72,6 +100,5 @@ public class AccountModel extends DBContext {
     public static void main(String[] args) {
         DBContext context = new DBContext();
         AccountModel accountModel = new AccountModel();
-        System.out.println(accountModel.login("admin@gmail.com", "123456"));
     }
 }

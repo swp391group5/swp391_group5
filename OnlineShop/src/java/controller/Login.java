@@ -7,7 +7,7 @@ package controller;
 
 import dao.AccountModel;
 import dao.DBContext;
-import model.Account;
+import entity.Account;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -40,20 +40,19 @@ public class Login extends HttpServlet {
 
             String email = request.getParameter("email");
             String pass = request.getParameter("password");
-            HttpSession session = request.getSession();
 
-            AccountModel accountModel = new AccountModel();
-            Account account = accountModel.login(email, pass);
-            System.out.println(account);
-
-            if (account == null) {
-                System.out.println("1");
-//                request.setAttribute("message", "Wrong email or password");
-                request.getRequestDispatcher("wrongpass.jsp").forward(request, response);
+            Account accountLogin = new AccountModel().login(email, pass);
+            if (accountLogin != null) {
+                HttpSession session = request.getSession();
+                session.setAttribute("currentAccount", accountLogin);
+                if (accountLogin.getRoleId() == 1) {
+                    response.sendRedirect("admin.jsp");
+                }else{
+                    response.sendRedirect("products.jsp");
+                }
             } else {
-                System.out.println("2");
-                session.setAttribute("acc", account);
-                response.sendRedirect("home");
+                request.setAttribute("message", "Wrong email or password");
+                request.getRequestDispatcher("login.jsp").forward(request, response);
             }
         }
     }

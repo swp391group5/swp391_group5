@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package entity;
 
 import java.sql.Date;
 
@@ -29,6 +29,14 @@ public class Account {
         this.roleId = roleId;
         this.status = status;
         this.createDate = createDate;
+    }
+
+    public Account(String email, String password, int accountDetailId, int roleId, int status) {
+        this.email = email;
+        this.password = password;
+        this.accountDetailId = accountDetailId;
+        this.roleId = roleId;
+        this.status = status;
     }
 
     public int getId() {
@@ -92,4 +100,8 @@ public class Account {
         return "Account{" + "id=" + id + ", email=" + email + ", password=" + password + ", accountDetailId=" + accountDetailId + ", roleId=" + roleId + ", status=" + status + ", createDate=" + createDate + '}';
     }
 
+    public String getFmDate() {
+        String[] str = this.createDate.split("-");
+        return str[2] + "-" + str[1] + "-" + str[0];
+    }
 }
