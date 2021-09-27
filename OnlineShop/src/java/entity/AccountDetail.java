@@ -17,6 +17,9 @@ public class AccountDetail {
     private int gender;
     private String address;
 
+    public AccountDetail() {
+    }
+
     public AccountDetail(int id, String name, String phone, int gender, String address) {
         this.id = id;
         this.name = name;

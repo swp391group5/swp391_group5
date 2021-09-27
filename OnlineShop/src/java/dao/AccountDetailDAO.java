@@ -5,7 +5,7 @@
  */
 package dao;
 
-import model.AccountDetail;
+import entity.AccountDetail;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -26,7 +26,7 @@ public class AccountDetailDAO extends DBContext{
                 accDetail.setId(rs.getInt("Id"));
                 accDetail.setName(rs.getString("Name"));
                 accDetail.setPhone(rs.getString("Phone_Number"));
-                accDetail.setGender(rs.getByte("Gender"));
+                accDetail.setGender(rs.getInt("Gender"));
                 accDetail.setAddress(rs.getString("Address"));
             }
         } catch (Exception e) {
