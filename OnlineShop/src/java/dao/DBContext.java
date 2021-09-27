@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DAO;
+package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -21,9 +21,17 @@ public class DBContext {
     }
 
     
-    private final String serverName = "LAPTOP-M5NL167U";
+    private final String serverName = "LAPTOP-BPRBQO14\\SANTIEN";
     private final String dbName = "SWP391";
     private final String portNumber = "1433";
     private final String userID = "sa";
-    private final String password = "123";
+    private final String password = "123456";
+    
+    public static void main(String[] args) {
+        try {
+            System.out.println("ket noi thanh cong");
+            System.out.println(new DBContext().getConnection());
+        } catch (Exception e) {
+        }
+    }
 }

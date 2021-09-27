@@ -3,25 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller;
+package controller;
 
-import Model.AccountModel;
-import Model.DBConnect;
-import entity.Account;
+import dao.AccountDetailDAO;
+import model.AccountDetail;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author SANG
+ * @author DucAnh
  */
-@WebServlet(name = "Login", urlPatterns = {"/login"})
-public class Login extends HttpServlet {
+public class UserProfileController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,11 +32,14 @@ public class Login extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        DBConnect dBConnect = new DBConnect();
-        AccountModel accountModel = new AccountModel(dBConnect);
-        
-        String email = request.getParameter("email");
-        String pass = request.getParameter("password");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            int id = Integer.parseInt(request.getParameter("id"));
+            AccountDetailDAO accDetalDAO = new AccountDetailDAO();
+            AccountDetail accDetail = accDetalDAO.getAccountDetail(id);
+            request.setAttribute("accDetail", accDetail);
+            request.getRequestDispatcher("UserProfile.jsp").forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

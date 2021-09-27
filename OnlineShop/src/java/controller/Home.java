@@ -3,22 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller;
+package controller;
 
-import DAO.AccountDetailDAO;
-import Model.AccountDetail;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author DucAnh
+ * @author SANG
  */
-public class UserProfileController extends HttpServlet {
+@WebServlet(name = "Home", urlPatterns = {"/home"})
+public class Home extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,11 +34,15 @@ public class UserProfileController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            int id = Integer.parseInt(request.getParameter("id"));
-            AccountDetailDAO accDetalDAO = new AccountDetailDAO();
-            AccountDetail accDetail = accDetalDAO.getAccountDetail(id);
-            request.setAttribute("accDetail", accDetail);
-            request.getRequestDispatcher("UserProfile.jsp").forward(request, response);
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet Home</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet Home test account " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
     }
 

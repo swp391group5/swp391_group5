@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package dao;
 
-import entity.Account;
+import dao.DBContext;
+import model.Account;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,22 +16,15 @@ import java.util.ArrayList;
  *
  * @author SANG
  */
-public class AccountModel {
+public class AccountModel extends DBContext {
 
-    Connection connection = null;
-    DBConnect dbcon = null;
     ResultSet rs = null;
     PreparedStatement ps = null;
-
-    public AccountModel(DBConnect dbcon) {
-        connection = dbcon.con;
-        this.dbcon = dbcon;
-    }
 
     public Account login(String email, String password) {
         String sql = "SELECT * FROM Account WHERE Email = ? and [Password] = ?";
         try {
-            PreparedStatement ps = connection.prepareStatement(sql);
+            PreparedStatement ps = getConnection().prepareStatement(sql);
             ps.setString(1, email);
             ps.setString(2, password);
             rs = ps.executeQuery();
@@ -55,7 +49,7 @@ public class AccountModel {
         ArrayList<Account> list = new ArrayList<Account>();
         String sql = "SELECT * FROM account";
         try {
-            PreparedStatement ps = connection.prepareStatement(sql);
+            PreparedStatement ps = getConnection().prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
                 Account account = new Account(
@@ -76,11 +70,8 @@ public class AccountModel {
     }
 
     public static void main(String[] args) {
-        DBConnect dBConnect = new DBConnect();
-        AccountModel accountModel = new AccountModel(dBConnect);
-        ArrayList<Account> list = accountModel.getAllAccount();
-        for (Account account : list) {
-            System.out.println(account);
-        }
+        DBContext context = new DBContext();
+        AccountModel accountModel = new AccountModel();
+        System.out.println(accountModel.login("admin@gmail.com", "123456"));
     }
 }
