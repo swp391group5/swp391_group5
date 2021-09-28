@@ -19,25 +19,37 @@
                     <h2>New User Sign up!</h2>
                     <p>${message}</p>
                     <form action="register" method="post">
-                        <input name="email" type="text" placeholder="Email" required=""/>
-                        <input name="password" type="password" placeholder="Password" required=""/>
-                        <input name="repassword" type="password" placeholder="Re-password" required=""/>
-                        <input name="name" type="text" placeholder="Name" required=""/>
-                        <input name="phone" type="text" placeholder="Phone" required=""/>
-                        <div class="col">
-                            <textarea name="address" type="text" placeholder="Address" required=""></textarea>
+                        <div class="form-group">
+                            <input name="email" type="text" placeholder="Email" required="" style="border: 2px solid; border-radius: .5rem" />
+                        </div>
+                        <div class="form-group">
+                            <input name="password" type="password" placeholder="Password" required="" style="border: 2px solid; border-radius: .5rem" />
+                        </div>
+                        <div class=" form-group">
+                            <input name="repassword" type="password" placeholder="Re-password" required="" style="border: 2px solid; border-radius: .5rem" />
+                        </div>
+                        <div class="form-group">
+                            <input name="name" type="text" placeholder="Name" required="" style="border: 2px solid; border-radius: .5rem" />
+                        </div>
+                        <div class="form-group">
+                            <input name="phone" type="text" placeholder="Phone" required="" style="border: 2px solid; border-radius: .5rem" />
                         </div>
                         <div class="col">
-                            <label>
-                                <input type="radio" value="1" name="gender" required="">
-                                <span>Nam</span>
-                            </label>
-                            <label>
-                                <input type="radio" value="0" name="gender" required="">
-                                <span>Nữ</span>
-                            </label>
+                            <textarea name="address" type="text" placeholder="Address" required="" style="border: 2px solid; border-radius: .5rem" ></textarea>
                         </div>
-                        <a href="login.jsp">Back</a>
+                        <div class="form-group">
+                            <div class="col">
+                                <label>
+                                    <input type="radio" value="1" name="gender" required="">
+                                    <span>Nam</span>
+                                </label>
+                                <label>
+                                    <input type="radio" value="0" name="gender" required="">
+                                    <span>Nữ</span>
+                                    <a href="login.jsp" style="margin-left: 58px;">Back</a>
+                                </label>
+                            </div>
+                        </div>
                         <div class="col">
                             <button type="submit" class="btn btn-success">Sign up</button>
                         </div>

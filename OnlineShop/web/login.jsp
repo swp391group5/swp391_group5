@@ -14,14 +14,21 @@
         <section id="form"><!--form-->
             <div class="container">
                 <div class="row" style="margin-top: 200px;">
-                    <div class="col-sm-4" style="margin-left: 450px">
+                    <div class="col-sm-4" style="margin-left: 450px;">
                         <h2>Login your account</h2>
                         <p>${message}</p>
                         <form action="login" method="post">
-                            <input name="email" type="text" placeholder="Email" required="" />
-                            <input name="password" type="password" placeholder="Password" required="" />
-                            <input type="checkbox" class="checkbox"> Keep me signed in
-                            <a href="register.jsp">New user ?</a>
+                            <div class="form-group">
+                                <input name="email" type="text" placeholder="Email" required="" style="border: 2px solid; border-radius: .5rem" />
+                            </div>
+                            <div class="form-group">
+                                <input name="password" type="password" placeholder="Password" required="" style="border: 2px solid; border-radius: .5rem" />
+                            </div>
+                            <div class="col">
+                                <input type="checkbox"> Keep me signed in
+                                <a href="register.jsp">New user ?</a>
+                            </div>
+
                             <div class="col">
                                 <button type="submit" class="btn btn-success">Login</button>
                             </div>
