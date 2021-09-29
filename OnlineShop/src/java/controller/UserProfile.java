@@ -60,10 +60,10 @@ public class UserProfile extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//            int id = Integer.parseInt(request.getParameter("id"));
-//            AccountDetailDAO accDetalDAO = new AccountDetailDAO();
-//            AccountDetail accDetail = accDetalDAO.getAccountDetail(id);
-//            request.setAttribute("accDetail", accDetail);
+            int id = Integer.parseInt(request.getParameter("id"));
+            AccountDetailDAO accDetalDAO = new AccountDetailDAO();
+            AccountDetail accDetail = accDetalDAO.getAccountDetail(id);
+            request.setAttribute("accDetail", accDetail);
             request.getRequestDispatcher("UserProfile.jsp").forward(request, response);
     }
 
