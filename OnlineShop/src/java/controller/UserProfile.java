@@ -19,8 +19,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author DucAnh
  */
-@WebServlet(name = "UserProfileController", urlPatterns = {"/UserProfileController"})
-public class UserProfileController extends HttpServlet {
+@WebServlet(name = "UserProfile", urlPatterns = {"/UserProfile"})
+public class UserProfile extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,11 +36,15 @@ public class UserProfileController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            int id = Integer.parseInt(request.getParameter("id"));
-            AccountDetailDAO accDetalDAO = new AccountDetailDAO();
-            AccountDetail accDetail = accDetalDAO.getAccountDetail(id);
-            request.setAttribute("accDetail", accDetail);
-            request.getRequestDispatcher("UserProfile.jsp").forward(request, response);
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet UserProfile</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet UserProfile at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
     }
 
@@ -56,7 +60,11 @@ public class UserProfileController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+//            int id = Integer.parseInt(request.getParameter("id"));
+//            AccountDetailDAO accDetalDAO = new AccountDetailDAO();
+//            AccountDetail accDetail = accDetalDAO.getAccountDetail(id);
+//            request.setAttribute("accDetail", accDetail);
+            request.getRequestDispatcher("UserProfile.jsp").forward(request, response);
     }
 
     /**

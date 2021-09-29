@@ -3,7 +3,7 @@
     Created on : Sep 27, 2021, 4:51:35 AM
     Author     : DucAnh
 --%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +12,34 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <jsp:include page="header.jsp"/>
+        <form action="\UpdateUserDetailController" method="POST">
+            <table>
+                <tr>
+                    <th>Name:</th>
+                    <td><input type="text" name="name" value="${accDetail.name}"></td>
+                </tr>
+                <tr>
+                    <th>Phone</th>
+                    <td><input type="text" name="phone" value="${accDetail.phone}"></td>
+                </tr>
+                <tr>
+                    <th>Gender</th>
+                    <td>
+                        <input type="radio" name="gender" value="0" <c:if test="${accDetail.gender == 0}">checked</c:if> >Male
+                        <input type="radio" name="gender" value="0" <c:if test="${accDetail.gender == 0}">checked</c:if> >Female
+                    </td>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <td><input type="text" name="address" value="${accDetail.address}"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button type="submit" >Update</button></td>
+                </tr>
+            </table>
+        </form>
+        <jsp:include page="footer.jsp"/>
     </body>
 </html>
