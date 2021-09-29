@@ -41,6 +41,7 @@ public class Login extends HttpServlet {
             String email = request.getParameter("email");
             String pass = request.getParameter("password");
 
+            // Check account
             Account accountLogin = new AccountModel().login(email, pass);
             if (accountLogin != null) {
                 HttpSession session = request.getSession();

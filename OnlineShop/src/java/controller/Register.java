@@ -52,10 +52,12 @@ public class Register extends HttpServlet {
             int gender = Integer.parseInt(request.getParameter("gender"));
 
             int idAccountDetail = 0;
+            // Check mail
             if (new AccountModel().checkEmail(email)) {
                 request.setAttribute("message", "Email already exist");
                 request.getRequestDispatcher("register.jsp").forward(request, response);
             } else {
+                // Check pass
                 if (pass.equals(rePass)) {
                     AccountDetail accountDetail = new AccountDetail(name, phone, gender, address);
                     idAccountDetail = new AccountDetailModel().addAccountDetail(accountDetail);
