@@ -41,11 +41,11 @@
                             <div class="col">
                                 <label>
                                     <input type="radio" value="1" name="gender" required="">
-                                    <span>Nam</span>
+                                    <span>Male</span>
                                 </label>
                                 <label>
                                     <input type="radio" value="0" name="gender" required="">
-                                    <span>Nữ</span>
+                                    <span>Female</span>
                                     <a href="login.jsp" style="margin-left: 58px;">Back</a>
                                 </label>
                             </div>
