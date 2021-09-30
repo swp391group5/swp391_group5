@@ -26,7 +26,7 @@
                 <tr>
                     <th>Gender</th>
                     <td>
-                        <input type="radio" name="gender" value="0" <c:if test="${accDetail.gender == 0}">checked</c:if> >Male
+                        <input type="radio" name="gender" value="0" <c:if test="${accDetail.gender == 1}">checked</c:if> >Male
                         <input type="radio" name="gender" value="0" <c:if test="${accDetail.gender == 0}">checked</c:if> >Female
                     </td>
                 </tr>
