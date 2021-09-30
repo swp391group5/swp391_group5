@@ -4,11 +4,8 @@
  * and open the template in the editor.
  */
 package controller;
-
-import entity.AccountDetail;
-import entity.Account;
 import dao.AccountModel;
-import dao.AccountDetailModel;
+import entity.Account;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -21,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author SANG
  */
-@WebServlet(name = "Register", urlPatterns = {"/register"})
-public class Register extends HttpServlet {
+@WebServlet(name = "RemindPassword", urlPatterns = {"/remindpassword"})
+public class ResetPassword extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,44 +32,19 @@ public class Register extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-
-//            // Get in4 Account Customer
+            
 //            String email = request.getParameter("email");
-//            String pass = request.getParameter("password");
-//            String rePass = request.getParameter("repassword");
-//            
-//            // Get in4 Account Detail
-//            String name = request.getParameter("name");
-//            String phone = request.getParameter("phone");
-//            String address = request.getParameter("address");
-//            int gender = Integer.parseInt(request.getParameter("gender"));
-//
-//            int idAccountDetail = 0;
-//            // Check mail
-//            if (new AccountModel().checkEmail(email)) {
-//                request.setAttribute("message", "Email already exist");
-//                request.getRequestDispatcher("register.jsp").forward(request, response);
-//            } else {
-//                // Check pass
-//                if (pass.equals(rePass)) {
-//                    AccountDetail accountDetail = new AccountDetail(name, phone, gender, address);
-//                    idAccountDetail = new AccountDetailModel().addAccountDetail(accountDetail);
-//                    if (idAccountDetail > 0) {
-//                        Account account = new Account(email, pass, idAccountDetail, 2, 1);
-//                        if (new AccountModel().addAccount(account)) {
-//                            request.setAttribute("message", "Regist successful");
-//                            request.getRequestDispatcher("register.jsp").forward(request, response);
-//                        }
-//                    }
-//                }else{
-//                    request.setAttribute("message", "Pass and Repass not match");
-//                    request.getRequestDispatcher("register.jsp").forward(request, response);
-//                }
+//            String message = "";
+//            if(new AccountModel().checkEmail(email)){
+//                System.out.println(email);
+//                message = "Check new pass in your mail !";
+//            }else{
+//                message = "Email not exits !";
 //            }
+//            request.setAttribute("message", message);
+//            request.getRequestDispatcher("remind_password.jsp").forward(request, response);
         }
     }
 

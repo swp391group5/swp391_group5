@@ -18,7 +18,7 @@
                 <div class="col-sm-4" style="margin-left: 450px;">
                     <h2>New User Sign up!</h2>
                     <p>${message}</p>
-                    <form action="register" method="post">
+                    <form action="servicesaccount" method="post">
                         <div class="form-group">
                             <input name="email" type="text" placeholder="Email" required="" style="border: 2px solid; border-radius: .5rem" />
                         </div>
@@ -52,6 +52,7 @@
                         </div>
                         <div class="col">
                             <button type="submit" class="btn btn-success">Sign up</button>
+                            <input name="service" type="hidden" value="register"/>
                         </div>
                     </form>
                 </div>

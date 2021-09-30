@@ -5,7 +5,7 @@
  */
 package dao;
 
-import dao.DBContext;
+import dbcontext.DBContext;
 import entity.AccountDetail;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

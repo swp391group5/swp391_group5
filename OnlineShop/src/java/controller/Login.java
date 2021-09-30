@@ -6,7 +6,7 @@
 package controller;
 
 import dao.AccountModel;
-import dao.DBContext;
+import dbcontext.DBContext;
 import entity.Account;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -38,23 +38,26 @@ public class Login extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
-            String email = request.getParameter("email");
-            String pass = request.getParameter("password");
-
-            // Check account
-            Account accountLogin = new AccountModel().login(email, pass);
-            if (accountLogin != null) {
-                HttpSession session = request.getSession();
-                session.setAttribute("currentAccount", accountLogin);
-                if (accountLogin.getRoleId() == 1) {
-                    response.sendRedirect("admin.jsp");
-                }else{
-                    response.sendRedirect("products.jsp");
-                }
-            } else {
-                request.setAttribute("message", "Wrong email or password");
-                request.getRequestDispatcher("login.jsp").forward(request, response);
-            }
+//            String email = request.getParameter("email");
+//            String pass = request.getParameter("password");
+//
+//            // Check account
+//            Account accountLogin = new AccountModel().login(email, pass);
+//            if (accountLogin != null) {
+//                HttpSession session = request.getSession();
+//                session.setAttribute("currentAccount", accountLogin);
+//                if (accountLogin.getRoleId() == 1) {
+//                    System.out.println(accountLogin);
+//                    System.out.println("1");
+//                    response.sendRedirect("admin.jsp");
+//                }else{
+//                    System.out.println("2");
+//                    response.sendRedirect("products.jsp");
+//                }
+//            } else {
+//                request.setAttribute("message", "Wrong email or password");
+//                request.getRequestDispatcher("login.jsp").forward(request, response);
+//            }
         }
     }
 

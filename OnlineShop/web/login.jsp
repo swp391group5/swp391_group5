@@ -11,13 +11,13 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
     </head><!--/head-->
     <body>
-        <section id="form"><!--form-->
+        <div id="form">
             <div class="container">
                 <div class="row" style="margin-top: 200px;">
                     <div class="col-sm-4" style="margin-left: 450px;">
                         <h2>Login your account</h2>
                         <p>${message}</p>
-                        <form action="login" method="post">
+                        <form action="servicesaccount" method="post">
                             <div class="form-group">
                                 <input name="email" type="text" placeholder="Email" required="" style="border: 2px solid; border-radius: .5rem" />
                             </div>
@@ -27,15 +27,16 @@
                             <div class="col">
                                 <input type="checkbox"> Keep me signed in
                                 <a href="register.jsp">New user ?</a>
+                                <a href="reset_password.jsp">Forgot password</a>
                             </div>
-
                             <div class="col">
                                 <button type="submit" class="btn btn-success">Login</button>
+                                <input name="service" type="hidden" value="login"/>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-        </section><!--/form-->
+        </div>
     </body>
 </html>

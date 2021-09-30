@@ -5,6 +5,7 @@
  */
 package dao;
 
+import dbcontext.DBContext;
 import entity.AccountDetail;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,8 +14,8 @@ import java.sql.ResultSet;
  *
  * @author DucAnh
  */
-public class AccountDetailDAO extends DBContext{
-    
+public class AccountDetailDAO extends DBContext {
+
     public AccountDetail getAccountDetail(int id) {
         AccountDetail accDetail = new AccountDetail();
         try {
@@ -34,5 +35,5 @@ public class AccountDetailDAO extends DBContext{
         }
         return accDetail;
     }
-    
+
 }
