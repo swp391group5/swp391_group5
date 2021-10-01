@@ -61,7 +61,7 @@ public class AccountServices extends HttpServlet {
                         response.sendRedirect("home");
                     }else if(accountLogin.getRoleId() == 3) {
                         System.out.println("3");
-                        response.sendRedirect("products");
+                        response.sendRedirect("productservices?service=list");
                     }
                 } else {
                     request.setAttribute("message", "Wrong email or password");

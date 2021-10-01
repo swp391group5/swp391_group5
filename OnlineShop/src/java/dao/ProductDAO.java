@@ -122,6 +122,73 @@ public class ProductDAO extends DBContext {
         }
         return list;
     }
+    
+    public boolean addProduct(Product product) {
+        try {
+            String sql = "INSERT INTO Products VALUES(?,?,?,?,?,?,?,?)";
+            PreparedStatement ps = getConnection().prepareStatement(sql);
+            ps.setString(1, product.getName());
+            ps.setInt(2, product.getCategory_id());
+            ps.setFloat(3, product.getPrice());
+            ps.setString(4, product.getDescription());
+            ps.setInt(5, product.getQuantity());
+            ps.setInt(6, product.getStatus());
+            ps.setString(7, product.getImage());
+            ps.setString(8, product.getNote());
+            int flag = ps.executeUpdate();
+            if (flag >= 1) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            System.err.println("Add Product Fail: " + e.getMessage());
+            return false;
+        }
+    }
+    
+    public boolean updateProduct(Product product) {
+        try {
+            String sql = "UPDATE Products SET Name= ? ,Category_Id= ? ,Price= ? ,Description= ? ,Quantity= ? ,Status= ? ,Image= ? ,Note= ? "
+                    + "WHERE Id= ?";
+            PreparedStatement ps = getConnection().prepareStatement(sql);
+            ps.setString(1, product.getName());
+            ps.setInt(2, product.getCategory_id());
+            ps.setFloat(3, product.getPrice());
+            ps.setString(4, product.getDescription());
+            ps.setInt(5, product.getQuantity());
+            ps.setInt(6, product.getStatus());
+            ps.setString(7, product.getImage());
+            ps.setString(8, product.getNote());
+            ps.setInt(9, product.getId());
+            int flag = ps.executeUpdate();
+            if (flag >= 1) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            System.err.println("Update Product Fail: " + e.getMessage());
+            return false;
+        }
+    }
+    
+    public boolean deleteProduct(int id) {
+        try {
+            String sql = "DELETE FROM Products WHERE Id= ?";
+            PreparedStatement ps = getConnection().prepareStatement(sql);
+            ps.setInt(1, id);
+            int flag = ps.executeUpdate();
+            if (flag >= 1) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            System.err.println("Delete Product Fail: " + e.getMessage());
+            return false;
+        }
+    }
 
     public static void main(String[] args) {
         ProductDAO dao = new ProductDAO();

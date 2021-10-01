@@ -40,7 +40,7 @@
                     <td>${p.image}</td>
                     <td>${p.note}</td>
                     <td><a href="UpdateProduct?id=${p.id}">Update</a></td>
-                    <td><a href="DeleteProduct?id=${p.id}">Delete</a></td>
+                    <td><a href="productservices?service=delete&id=${p.id}">Delete</a></td>
                 </tr>
             </c:forEach>
         </table>

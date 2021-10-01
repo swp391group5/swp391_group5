@@ -65,9 +65,10 @@
                         </div>
                         <div class="col-sm-3">
                             <div class="search_box pull-right">
-                                <form action="home" method="Post">
-                                    <input type="text" name="search" placeholder="Search"/>
+                                <form action="productservices" method="Post">
+                                    <input type="text" name="searchName" placeholder="Search"/>
                                     <button type="submit">Search</button>
+                                    <input name="service" type="hidden" value="search"/>
                                 </form>
                             </div>
                         </div>
