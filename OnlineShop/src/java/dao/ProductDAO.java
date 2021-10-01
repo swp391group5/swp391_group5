@@ -17,6 +17,9 @@ import java.util.ArrayList;
  */
 public class ProductDAO extends DBContext {
 
+    ResultSet rs = null;
+    PreparedStatement ps = null;
+
     public ArrayList<Product> getListProduct(String search) {
         ArrayList<Product> listProduct = new ArrayList<>();
         try {
@@ -69,4 +72,62 @@ public class ProductDAO extends DBContext {
         return product;
     }
 
+    public ArrayList<Product> getAllProduct() {
+        ArrayList<Product> list = new ArrayList<>();
+        String sql = "SELECT * FROM Products";
+        try {
+            ps = getConnection().prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Product product = new Product(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getInt(3),
+                        rs.getFloat(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getString(8),
+                        rs.getString(9)
+                );
+                list.add(product);
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+
+    public ArrayList<Product> getAllProductByCategory(int id) {
+        ArrayList<Product> list = new ArrayList<>();
+        String sql = "SELECT * FROM Products WHERE Category_Id = ?";
+        try {
+            ps = getConnection().prepareStatement(sql);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Product product = new Product(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getInt(3),
+                        rs.getFloat(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getString(8),
+                        rs.getString(9)
+                );
+                list.add(product);
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+
+    public static void main(String[] args) {
+        ProductDAO dao = new ProductDAO();
+        ArrayList<Product> list = dao.getAllProductByCategory(1);
+        for(Product pro : list){
+            System.out.println(pro);
+        }
+    }
 }

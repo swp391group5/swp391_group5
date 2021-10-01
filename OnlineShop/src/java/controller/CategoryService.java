@@ -22,8 +22,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author SANG
  */
-@WebServlet(name = "Home", urlPatterns = {"/home"})
-public class Home extends HttpServlet {
+@WebServlet(name = "CategoryService", urlPatterns = {"/categoryService"})
+public class CategoryService extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,17 +38,18 @@ public class Home extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
-            // Data Category
+
             CategoryDAO cate = new CategoryDAO();
             ArrayList<Category> list = cate.getAllCategory();
-            // Data Product
+
+            int id = Integer.parseInt(request.getParameter("id"));
             ProductDAO productDAO = new ProductDAO();
-            ArrayList<Product> listProduct = productDAO.getAllProduct();
-            
-            request.setAttribute("listproduct", listProduct);
+            ArrayList<Product> listProductCategory = productDAO.getAllProductByCategory(id);
+
             request.setAttribute("cate", list);
+            request.setAttribute("listproduct", listProductCategory);
             request.getRequestDispatcher("home.jsp").forward(request, response);
+
         }
     }
 
@@ -79,11 +80,6 @@ public class Home extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-//        String search = request.getParameter("search");
-//        ProductDAO productDAO = new ProductDAO();
-//        ArrayList<Product> listProduct = productDAO.getListProduct(search);
-//        request.setAttribute("listProduct", listProduct);
-//        request.getRequestDispatcher("home.jsp").forward(request, response);
     }
 
     /**

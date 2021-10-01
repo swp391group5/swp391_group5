@@ -5,8 +5,10 @@
  */
 package controller;
 
+
 import dao.AccountDetailModel;
 import dao.AccountModel;
+import entity.Account;
 import entity.AccountDetail;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -47,7 +49,7 @@ public class AccountServices extends HttpServlet {
                 String pass = request.getParameter("password");
 
                 // Check account
-                entity.Account accountLogin = new AccountModel().login(email, pass);
+                Account accountLogin = new AccountModel().login(email, pass);
                 if (accountLogin != null) {
                     session.setAttribute("currentAccount", accountLogin);
                     if (accountLogin.getRoleId() == 1) {
@@ -56,10 +58,10 @@ public class AccountServices extends HttpServlet {
                         response.sendRedirect("admin.jsp");
                     } else if(accountLogin.getRoleId() == 2) {
                         System.out.println("2");
-                        response.sendRedirect("products.jsp");
+                        response.sendRedirect("home");
                     }else if(accountLogin.getRoleId() == 3) {
                         System.out.println("3");
-                        response.sendRedirect("home");
+                        response.sendRedirect("products");
                     }
                 } else {
                     request.setAttribute("message", "Wrong email or password");
@@ -91,10 +93,11 @@ public class AccountServices extends HttpServlet {
                         AccountDetail accountDetail = new AccountDetail(name, phone, gender, address);
                         idAccountDetail = new AccountDetailModel().addAccountDetail(accountDetail);
                         if (idAccountDetail > 0) {
-                            entity.Account account = new entity.Account(email, pass, idAccountDetail, 3, 1);
+                            Account account = new Account(email, pass, idAccountDetail, 2, 1);
                             if (new AccountModel().addAccount(account)) {
+                                System.out.println(account); // Test datas
                                 request.setAttribute("message", "Regist successful");
-                                request.getRequestDispatcher("home").forward(request, response);
+                                request.getRequestDispatcher("register.jsp").forward(request, response);
                             }
                         }
                     } else {
