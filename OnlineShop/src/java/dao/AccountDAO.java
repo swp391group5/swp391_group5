@@ -16,7 +16,7 @@ import java.util.ArrayList;
  *
  * @author SANG
  */
-public class AccountModel extends DBContext {
+public class AccountDAO extends DBContext {
 
     ResultSet rs = null;
     PreparedStatement ps = null;
@@ -99,6 +99,6 @@ public class AccountModel extends DBContext {
 
     public static void main(String[] args) {
         DBContext context = new DBContext();
-        AccountModel accountModel = new AccountModel();
+        AccountDAO accountModel = new AccountDAO();
     }
 }

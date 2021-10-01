@@ -6,8 +6,8 @@
 package controller;
 
 
-import dao.AccountDetailModel;
-import dao.AccountModel;
+import dao.AccountDetailDAO;
+import dao.AccountDAO;
 import entity.Account;
 import entity.AccountDetail;
 import java.io.IOException;
@@ -40,7 +40,7 @@ public class AccountServices extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
-            HttpSession session = request.getSession();
+            HttpSession session = request.getSession(true);
             String service = request.getParameter("service");
 
             // LOGIN
@@ -49,7 +49,7 @@ public class AccountServices extends HttpServlet {
                 String pass = request.getParameter("password");
 
                 // Check account
-                Account accountLogin = new AccountModel().login(email, pass);
+                Account accountLogin = new AccountDAO().login(email, pass);
                 if (accountLogin != null) {
                     session.setAttribute("currentAccount", accountLogin);
                     if (accountLogin.getRoleId() == 1) {
@@ -68,6 +68,12 @@ public class AccountServices extends HttpServlet {
                     request.getRequestDispatcher("login.jsp").forward(request, response);
                 }
             }
+            
+            // LOGOUT
+            if (service.equals("logout")) {
+                session.removeAttribute("currentAccount");
+                response.sendRedirect("home");
+            }
 
             // REGISTER
             if (service.equals("register")) {
@@ -84,17 +90,17 @@ public class AccountServices extends HttpServlet {
 
                 int idAccountDetail = 0;
                 // Check mail
-                if (new AccountModel().checkEmail(email)) {
+                if (new AccountDAO().checkEmail(email)) {
                     request.setAttribute("message", "Email already exist");
                     request.getRequestDispatcher("register.jsp").forward(request, response);
                 } else {
                     // Check pass
                     if (pass.equals(rePass)) {
                         AccountDetail accountDetail = new AccountDetail(name, phone, gender, address);
-                        idAccountDetail = new AccountDetailModel().addAccountDetail(accountDetail);
+                        idAccountDetail = new AccountDetailDAO().addAccountDetail(accountDetail);
                         if (idAccountDetail > 0) {
                             Account account = new Account(email, pass, idAccountDetail, 2, 1);
-                            if (new AccountModel().addAccount(account)) {
+                            if (new AccountDAO().addAccount(account)) {
                                 System.out.println(account); // Test datas
                                 request.setAttribute("message", "Regist successful");
                                 request.getRequestDispatcher("register.jsp").forward(request, response);
@@ -111,7 +117,7 @@ public class AccountServices extends HttpServlet {
             if (service.equals("remindpassword")) {
                 String email = request.getParameter("email");
                 String message = "";
-                if (new AccountModel().checkEmail(email)) {
+                if (new AccountDAO().checkEmail(email)) {
                     System.out.println(email);
                     message = "Check new pass in your mail !";
                 } else {

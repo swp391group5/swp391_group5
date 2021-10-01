@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package controller;
-import dao.AccountModel;
+import dao.AccountDAO;
 import entity.Account;
 import java.io.IOException;
 import java.io.PrintWriter;

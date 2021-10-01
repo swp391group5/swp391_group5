@@ -62,9 +62,9 @@ public class UserProfile extends HttpServlet {
             throws ServletException, IOException {
             int id = Integer.parseInt(request.getParameter("id"));
             AccountDetailDAO accDetalDAO = new AccountDetailDAO();
-            AccountDetail accDetail = accDetalDAO.getAccountDetail(id);
+            AccountDetail accDetail = accDetalDAO.getAccountById(id);
             request.setAttribute("accDetail", accDetail);
-            request.getRequestDispatcher("UserProfile.jsp").forward(request, response);
+            request.getRequestDispatcher("personal-data.jsp").forward(request, response);
     }
 
     /**

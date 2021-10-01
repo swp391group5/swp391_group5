@@ -7,16 +7,43 @@ package dao;
 
 import dbcontext.DBContext;
 import entity.AccountDetail;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
- * @author DucAnh
+ * @author SANG
  */
 public class AccountDetailDAO extends DBContext {
 
-    public AccountDetail getAccountDetail(int id) {
+    ResultSet rs = null;
+    PreparedStatement ps = null;
+
+    public int addAccountDetail(AccountDetail accountDetail) {
+        String sql = "INSERT INTO Account_Detail(Name, Phone_Number, Gender, Address) VALUES(?, ?, ?, ?)";
+        try {
+            // Declare statement.return_generated_keys to control program jdbc return the keys
+            ps = getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, accountDetail.getName());
+            ps.setString(2, accountDetail.getPhone());
+            ps.setInt(3, accountDetail.getGender());
+            ps.setString(4, accountDetail.getAddress());
+            int n = ps.executeUpdate();
+            if (n > 0) {
+                // Fields PK id in table accDetail set is auto increment
+                rs = ps.getGeneratedKeys();
+                rs.next();
+                return rs.getInt(1);
+            }
+        } catch (Exception e) {
+        }
+        return 0;
+    }
+
+    public AccountDetail getAccountById(int id) {
         AccountDetail accDetail = new AccountDetail();
         try {
             String sql = "SELECT * FROM Account_Detail WHERE Id = ?";
@@ -36,4 +63,9 @@ public class AccountDetailDAO extends DBContext {
         return accDetail;
     }
 
+    public static void main(String[] args) {
+        // Test datas
+        AccountDetailDAO accountDetailModel = new AccountDetailDAO();
+        accountDetailModel.addAccountDetail(new AccountDetail("Sang", "0768668386", 1, "Quang Ninh"));
+    }
 }
