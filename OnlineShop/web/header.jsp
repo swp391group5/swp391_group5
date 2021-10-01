@@ -3,7 +3,7 @@
     Created on : Sep 28, 2021, 9:12:44 PM
     Author     : SANG
 --%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -35,10 +35,17 @@
                         <div class="col-md-8 clearfix">
                             <div class="shop-menu clearfix pull-right">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="UserProfile?id=${currentAccount.accountDetailId}"><i class="fa fa-user"></i> Account</a></li>
                                     <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                                     <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                                    <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+                                        <c:choose>
+                                            <c:when test="${currentAccount != null}">
+                                            <li><a href="UserProfile?id=${currentAccount.accountDetailId}"><i class="fa fa-user"></i> Account</a></li>
+                                            <li><a href="Logout"><i class="fa fa-lock"></i> Logout</a></li>
+                                            </c:when>
+                                            <c:when test="${currentAccount == null}">
+                                            <li><a href="login.jsp"><i class="fa fa-lock"></i> Login</a></li>
+                                            </c:when>
+                                        </c:choose>
                                 </ul>
                             </div>
                         </div>
@@ -52,13 +59,16 @@
                         <div class="col-sm-9">
                             <div class="mainmenu pull-left">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
-                                    <li><a href="index.html" class="active">Home</a></li>
+                                    <li><a href="home" class="active">Home</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="search_box pull-right">
-                                <input type="text" placeholder="Search"/>
+                                <form action="home" method="Post">
+                                    <input type="text" name="search" placeholder="Search"/>
+                                    <button type="submit">Search</button>
+                                </form>
                             </div>
                         </div>
                     </div>

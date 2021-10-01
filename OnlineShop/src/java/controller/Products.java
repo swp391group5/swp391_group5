@@ -18,10 +18,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author SANG
+ * @author DucAnh
  */
-@WebServlet(name = "Home", urlPatterns = {"/home"})
-public class Home extends HttpServlet {
+@WebServlet(name = "Products", urlPatterns = {"/Products"})
+public class Products extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,10 +40,10 @@ public class Home extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Home</title>");            
+            out.println("<title>Servlet Products</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Home test account<h1>");
+            out.println("<h1>Servlet Products at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -64,7 +64,7 @@ public class Home extends HttpServlet {
         ProductDAO productDAO = new ProductDAO();
         ArrayList<Product> listProduct = productDAO.getListProduct("");
         request.setAttribute("listProduct", listProduct);
-        request.getRequestDispatcher("home.jsp").forward(request, response);
+        request.getRequestDispatcher("products.jsp").forward(request, response);
     }
 
     /**
@@ -78,11 +78,7 @@ public class Home extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String search = request.getParameter("search");
-        ProductDAO productDAO = new ProductDAO();
-        ArrayList<Product> listProduct = productDAO.getListProduct(search);
-        request.setAttribute("listProduct", listProduct);
-        request.getRequestDispatcher("home.jsp").forward(request, response);
+        processRequest(request, response);
     }
 
     /**

@@ -9,7 +9,6 @@ import dao.ProductDAO;
 import entity.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,10 +17,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author SANG
+ * @author DucAnh
  */
-@WebServlet(name = "Home", urlPatterns = {"/home"})
-public class Home extends HttpServlet {
+@WebServlet(name = "ProductDetails", urlPatterns = {"/ProductDetails"})
+public class ProductDetails extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,16 +35,11 @@ public class Home extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Home</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Home test account<h1>");
-            out.println("</body>");
-            out.println("</html>");
+            int id = Integer.parseInt(request.getParameter("id"));
+            ProductDAO productDAO = new ProductDAO();
+            Product product = productDAO.getProductDetail(id);
+            request.setAttribute("product", product);
+            request.getRequestDispatcher("ProductDetails.jsp").forward(request, response);
         }
     }
 
@@ -61,10 +55,7 @@ public class Home extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ProductDAO productDAO = new ProductDAO();
-        ArrayList<Product> listProduct = productDAO.getListProduct("");
-        request.setAttribute("listProduct", listProduct);
-        request.getRequestDispatcher("home.jsp").forward(request, response);
+        processRequest(request, response);
     }
 
     /**
@@ -78,11 +69,7 @@ public class Home extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String search = request.getParameter("search");
-        ProductDAO productDAO = new ProductDAO();
-        ArrayList<Product> listProduct = productDAO.getListProduct(search);
-        request.setAttribute("listProduct", listProduct);
-        request.getRequestDispatcher("home.jsp").forward(request, response);
+        processRequest(request, response);
     }
 
     /**

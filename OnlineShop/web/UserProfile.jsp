@@ -13,25 +13,26 @@
     </head>
     <body>
         <jsp:include page="header.jsp"/>
-        <form action="\UpdateUserDetailController" method="POST">
-            <table>
+        <h2 class="title text-center">Profile </h2>
+        <form action="UpdateUserDetail" method="POST">
+            <table align="center">
                 <tr>
                     <th>Name:</th>
                     <td><input type="text" name="name" value="${accDetail.name}"></td>
                 </tr>
                 <tr>
-                    <th>Phone</th>
+                    <th>Phone:</th>
                     <td><input type="text" name="phone" value="${accDetail.phone}"></td>
                 </tr>
                 <tr>
-                    <th>Gender</th>
+                    <th>Gender:</th>
                     <td>
                         <input type="radio" name="gender" value="0" <c:if test="${accDetail.gender == 1}">checked</c:if> >Male
                         <input type="radio" name="gender" value="0" <c:if test="${accDetail.gender == 0}">checked</c:if> >Female
                     </td>
                 </tr>
                 <tr>
-                    <th>Address</th>
+                    <th>Address:</th>
                     <td><input type="text" name="address" value="${accDetail.address}"></td>
                 </tr>
                 <tr>
