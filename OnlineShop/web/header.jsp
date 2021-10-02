@@ -43,7 +43,7 @@
                                             <li><a href="servicesaccount?service=logout"><i class="fa fa-lock"></i> Logout</a></li>
                                             </c:when>
                                             <c:when test="${currentAccount == null}">
-                                            <li><a href="login.jsp"><i class="fa fa-lock"></i> Login</a></li>
+                                            <li><a href="login1.jsp"><i class="fa fa-lock"></i> Login</a></li>
                                             </c:when>
                                         </c:choose>
                                 </ul>
