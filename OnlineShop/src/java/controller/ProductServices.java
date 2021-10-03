@@ -38,7 +38,7 @@ public class ProductServices extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             String service = request.getParameter("service");
 
-            //LIST PRODUCT
+            // LIST PRODUCT
             if (service.equalsIgnoreCase("list")) {
                 ProductDAO productDAO = new ProductDAO();
                 ArrayList<Product> listProduct = productDAO.getListProduct("");
@@ -46,7 +46,7 @@ public class ProductServices extends HttpServlet {
                 request.getRequestDispatcher("products.jsp").forward(request, response);
             }
 
-            //SEARCH PRODUCT BY NAME
+            // SEARCH PRODUCT BY NAME
             if (service.equalsIgnoreCase("search")) {
                 String search = request.getParameter("searchName");
                 ProductDAO productDAO = new ProductDAO();
@@ -55,7 +55,7 @@ public class ProductServices extends HttpServlet {
                 request.getRequestDispatcher("home.jsp").forward(request, response);
             }
 
-            //PRODUCT DETAILS
+            // PRODUCT DETAILS
             if (service.equalsIgnoreCase("details")) {
                 int id = Integer.parseInt(request.getParameter("id"));
                 ProductDAO productDAO = new ProductDAO();
@@ -64,7 +64,7 @@ public class ProductServices extends HttpServlet {
                 request.getRequestDispatcher("ProductDetails.jsp").forward(request, response);
             }
 
-            //ADD PRODUCT
+            // ADD PRODUCT
             if (service.equalsIgnoreCase("add")) {
                 int id = Integer.parseInt(request.getParameter("id"));
                 String name = request.getParameter("name");
@@ -86,7 +86,7 @@ public class ProductServices extends HttpServlet {
                 }
             }
 
-            //UPDATE PRODUCT
+            // UPDATE PRODUCT
             if (service.equalsIgnoreCase("update")) {
                 int id = Integer.parseInt(request.getParameter("id"));
                 String name = request.getParameter("name");
@@ -108,7 +108,7 @@ public class ProductServices extends HttpServlet {
                 }
             }
 
-            //DETELE PRODUCT
+            // DETELE PRODUCT
             if (service.equalsIgnoreCase("delete")) {
                 int id = Integer.parseInt(request.getParameter("id"));
                 ProductDAO productDAO = new ProductDAO();

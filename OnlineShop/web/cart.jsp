@@ -20,7 +20,6 @@
         <link href="css/animate.css" rel="stylesheet">
         <link href="css/main.css" rel="stylesheet">
         <link href="css/responsive.css" rel="stylesheet">
-
     </head><!--/head-->
 
     <body>

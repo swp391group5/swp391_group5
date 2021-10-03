@@ -36,7 +36,7 @@
                             <div class="shop-menu clearfix pull-right">
                                 <ul class="nav navbar-nav">
                                     <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                                    <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                                    <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i> Cart</a></li>
                                         <c:choose>
                                             <c:when test="${currentAccount != null}">
                                             <li><a href="UserProfile?id=${currentAccount.accountDetailId}"><i class="fa fa-user"></i> Account</a></li>

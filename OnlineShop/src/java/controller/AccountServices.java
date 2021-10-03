@@ -5,7 +5,6 @@
  */
 package controller;
 
-
 import dao.AccountDetailDAO;
 import dao.AccountDAO;
 import entity.Account;
@@ -38,6 +37,9 @@ public class AccountServices extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
+
         try (PrintWriter out = response.getWriter()) {
 
             HttpSession session = request.getSession(true);
@@ -56,10 +58,10 @@ public class AccountServices extends HttpServlet {
                         System.out.println(accountLogin);
                         System.out.println("1");
                         response.sendRedirect("admin.jsp");
-                    } else if(accountLogin.getRoleId() == 2) {
+                    } else if (accountLogin.getRoleId() == 2) {
                         System.out.println("2");
                         response.sendRedirect("home");
-                    }else if(accountLogin.getRoleId() == 3) {
+                    } else if (accountLogin.getRoleId() == 3) {
                         System.out.println("3");
                         response.sendRedirect("productservices?service=list");
                     }
@@ -68,7 +70,7 @@ public class AccountServices extends HttpServlet {
                     request.getRequestDispatcher("login.jsp").forward(request, response);
                 }
             }
-            
+
             // LOGOUT
             if (service.equals("logout")) {
                 session.removeAttribute("currentAccount");
@@ -124,7 +126,7 @@ public class AccountServices extends HttpServlet {
                     message = "Email not exits !";
                 }
                 request.setAttribute("message", message);
-                request.getRequestDispatcher("reset_password.jsp").forward(request, response);
+                request.getRequestDispatcher("reset-password.jsp").forward(request, response);
             }
         }
     }

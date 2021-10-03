@@ -1,62 +1,65 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-        <link href="css/login-register.css" rel="stylesheet" type="text/css"/>
+        <title>Login 10</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/style_1.css">
     </head>
-    <body>
-        <div id="intro">
-            <div class="middle signin"> 
-                <div class="login-panel">
-                    <p>LOGIN USER</p>
-                    <p>${message}</p>
-                    <p class="notification" style="padding: .3rem;"></p>
-                    <form action="servicesaccount" method="post">
-                        <div class="form-group">
-                            <div class="col">
-                                <input type="text" name="email" class="form-control" placeholder="Email" >
+    <body class="img js-fullheight" style="background-image: url(images/bg.jpg);">
+        <section class="ftco-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center mb-5">
+                        <h2 class="heading-section">Login</h2>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="login-wrap p-0">
+                            <h3 class="mb-4 text-center">Have an account?</h3>
+                            <p style="text-align: center;">${message}</p>
+                            <form action="servicesaccount" method="post">     
+                                <div class="form-group">
+                                    <input name="email" type="text" class="form-control" placeholder="Email" required>
+                                </div>
+                                <div class="form-group">
+                                    <input name="password" type="password" class="form-control" placeholder="Mật khẩu" required>
+                                    <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
+                                    <input name="service" type="hidden" value="login" />
+                                </div>
+                                <div class="form-group d-md-flex">
+                                    <div class="w-50">
+                                        <label class="checkbox-wrap checkbox-primary">Remember Me
+                                            <input type="checkbox" checked>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <div class="w-50 text-md-right">
+                                        <a href="reset-password.jsp" style="color: #fff">Forgot Password</a>
+                                    </div>
+                                </div>
+                            </form>
+                            <p class="w-100 text-center">&mdash; Or &mdash;</p>
+                            <div class="social d-flex text-center">
+                                <a href="register.jsp" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Create new account</a>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="col">
-                                <input type="password" name="password" class="form-control" placeholder="Password">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col">
-                                <label class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="login-remember-me" name="login-remember-me">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Ghi nhớ mật khẩu</span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col">
-                                <button type="submit" class="btn btn-sm">
-                                    Đăng nhập
-                                </button>
-                                <input name="service" type="hidden" value="login"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col">
-                                <a href="reset-password.jsp">
-                                    Quên mật khẩu
-                                </a>
-                                <a href="register.jsp" style="margin-left: 6.6rem;">
-                                    Đăng ký
-                                </a>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/popper.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/main.js"></script>
     </body>
 </html>
+
