@@ -39,11 +39,11 @@
 	            	<div class="w-50">
 		            	<label class="checkbox-wrap checkbox-primary">Remember Me
 									  <input type="checkbox" checked>
-									  <span class="checkmark"></span>
+                                                                          <span class="checkmark"></span>
 									</label>
 								</div>
 								<div class="w-50 text-md-right">
-									<a href="reset_password.jsp" style="color: #fff">Forgot Password</a>
+									<a href="reset-password.jsp" style="color: #fff">Forgot Password?</a>
 								</div>
 	            </div>
 	          </form>

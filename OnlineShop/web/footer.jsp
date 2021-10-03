@@ -97,7 +97,6 @@
                         <div class="col-sm-3">
                             <div class="address">
                                 <img src="images/home/map.png" alt="" />
-                                <p>New York, USA</p>
                             </div>
                         </div>
                     </div>
@@ -157,7 +156,7 @@
                         </div>
                         <div class="col-sm-3 col-sm-offset-1">
                             <div class="single-widget">
-                                <h2>About Shopper</h2>
+                                <h2>Get Information</h2>
                                 <form action="#" class="searchform">
                                     <input type="text" placeholder="Your email address" />
                                     <button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
