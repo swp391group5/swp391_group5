@@ -35,15 +35,15 @@
                         <div class="col-md-8 clearfix">
                             <div class="shop-menu clearfix pull-right">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                                    <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                                    <li><a href="checkout.html"><i class="fa fa-crosshairs"></i>Checkout</a></li>
+                                    <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Giỏ hàng</a></li>
                                         <c:choose>
                                             <c:when test="${currentAccount != null}">
-                                            <li><a href="UserProfile?id=${currentAccount.accountDetailId}"><i class="fa fa-user"></i> Account</a></li>
-                                            <li><a href="servicesaccount?service=logout"><i class="fa fa-lock"></i> Logout</a></li>
+                                            <li><a href="UserProfile?id=${currentAccount.accountDetailId}"><i class="fa fa-user"></i>Tài khoản</a></li>
+                                            <li><a href="servicesaccount?service=logout"><i class="fa fa-lock"></i>Đăng xuất</a></li>
                                             </c:when>
                                             <c:when test="${currentAccount == null}">
-                                            <li><a href="login.jsp"><i class="fa fa-lock"></i> Login</a></li>
+                                            <li><a href="login.jsp"><i class="fa fa-lock"></i>Đăng nhập</a></li>
                                             </c:when>
                                         </c:choose>
                                 </ul>
@@ -59,15 +59,15 @@
                         <div class="col-sm-9">
                             <div class="mainmenu pull-left">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
-                                    <li><a href="home" class="active">Home</a></li>
+                                    <li><a href="home.jsp" class="active">Trang chủ</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="search_box pull-right">
                                 <form action="productservices" method="Post">
-                                    <input type="text" name="searchName" placeholder="Search"/>
-                                    <button type="submit">Search</button>
+                                    <input type="text" name="searchName" placeholder="Tên sản phẩm"/>
+                                    <button type="submit">Tìm kiếm</button>
                                     <input name="service" type="hidden" value="search"/>
                                 </form>
                             </div>

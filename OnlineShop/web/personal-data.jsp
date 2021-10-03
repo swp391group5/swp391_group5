@@ -1,5 +1,5 @@
 <%-- 
-    Document   : ProductDetails
+    Document   : UserProfile
     Created on : Oct 1, 2021, 7:51:28 AM
     Author     : DucAnh
 --%>
@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Thông tin người dùng</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link href="css/personal.css" rel="stylesheet" type="text/css"/>
     </head>
@@ -47,7 +47,7 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
+                        <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Lưu thông tin</button></div>
                     </div>
                 </div>
             </div>
