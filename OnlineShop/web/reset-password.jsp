@@ -40,11 +40,11 @@
                             </form>
                             <p class="w-100 text-center">&mdash; Or &mdash;</p>
                             <div class="social d-flex text-center">
-                                <a href="login1.jsp" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span>Back to Login</a>
+                                <a href="login.jsp" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span>Back to Login</a>
                             </div>
                             <p></p>
                             <div class="social d-flex text-center">
-                                <a href="register1.jsp" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span>Create new account</a>
+                                <a href="register.jsp" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span>Create new account</a>
                             </div>
                         </div>
                     </div>
